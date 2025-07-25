@@ -2,21 +2,17 @@
 //3 TanStack Libraries!!!
 import {
   type ColumnDef,
-  flexRender,
   getCoreRowModel,
   getSortedRowModel,
   type OnChangeFn,
-  type Row,
   type SortingState,
   useReactTable,
 } from '@tanstack/react-table'
 import {
   keepPreviousData,
-  QueryClient,
-  QueryClientProvider,
   useInfiniteQuery,
 } from '@tanstack/react-query'
-import { useVirtualizer, type VirtualItem } from '@tanstack/react-virtual'
+import { useVirtualizer } from '@tanstack/react-virtual'
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import axiosInstance from "../utils/axiosInstance";
 // MUI imports
@@ -31,7 +27,6 @@ import type { Media } from "../types/Types";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
-import { CircularProgress } from "@mui/material";
 import Stack from '@mui/material/Stack';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
@@ -39,11 +34,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import DialogActions from '@mui/material/DialogActions';
-import Button from '@mui/material/Button';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
