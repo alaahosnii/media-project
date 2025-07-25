@@ -1,69 +1,99 @@
-# React + TypeScript + Vite
+# Media Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application for managing and exploring media content (movies, TV shows, and more). Built with React, TypeScript, Vite, Redux Toolkit, React Query, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
+- Add, view, and manage media items (movies, TV shows, etc.)
+- Upload posters and gallery images for each media item
+- Responsive, modern UI with sidebar navigation
+- User authentication (login/register)
+- Toast notifications for feedback
+- Form validation and error handling
+- API integration with Axios
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **Frontend:** React 19, TypeScript, Vite
+- **State Management:** Redux Toolkit, React Context
+- **Data Fetching:** React Query, Axios
+- **Styling:** Tailwind CSS, MUI, Radix UI
+- **Routing:** React Router DOM
+- **Notifications:** React Toastify
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
+- Node.js (v18+ recommended)
+- npm or yarn
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+```bash
+npm install
+# or
+yarn install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Development
+```bash
+npm run dev
+# or
+yarn dev
 ```
+
+### Build
+```bash
+npm run build
+# or
+yarn build
+```
+
+### Lint
+```bash
+npm run lint
+# or
+yarn lint
+```
+
+## Folder Structure
+```
+src/
+  components/      # UI and layout components
+  contexts/        # React context providers
+  hooks/           # Custom React hooks
+  lib/             # Utility libraries
+  pages/           # App pages (AddMedia, Home, etc.)
+  providers/       # App-wide providers
+  redux/           # Redux slices and store
+  routes/          # App routes
+  types/           # TypeScript types
+  utils/           # Axios instance, helpers
+```
+
+## API/Backend
+- The app communicates with a backend API (e.g., `/movies` or `/media` endpoints) using Axios.
+- Example request to add media:
+
+```ts
+await axiosInstance.post('/media', {
+  title: 'Inception',
+  director: 'Christopher Nolan',
+  releaseYear: 2010,
+  type: 'MOVIE',
+  description: 'A mind-bending thriller',
+  poster: '<base64 string>',
+  images: ['<base64 string>', ...],
+  budget: 160000000,
+  location: 'Los Angeles',
+  duration: 148,
+});
+```
+- Update the endpoint as needed to match your backend.
+
+## Contribution
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
+5. Open a Pull Request
+
+## License
+[MIT](LICENSE)
