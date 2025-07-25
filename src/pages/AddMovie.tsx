@@ -75,7 +75,7 @@ const AddMovie = () => {
       const id = toast.loading('Adding media...');
       setToastId(id);
     },
-    onSuccess: (res) => {
+    onSuccess: () => {
       toast.update(toastId!, {
         render: 'Media added successfully!',
         type: 'success',

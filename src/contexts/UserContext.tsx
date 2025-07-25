@@ -15,7 +15,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
         if (token) {
             try {
                 setUser(jwtDecode(token) as User);
-            } catch (e) {
+            } catch {
                 setUser(null);
             }
         } else {
